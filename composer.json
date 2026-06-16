@@ -1,0 +1,22 @@
+{
+  "name": "inf-company/api-response-base",
+  "type": "library",
+  "version": "1.0.0",
+  "description": "An base API response package for Hyperf or Laravel applications at INF Company.",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "InfCompany\\ApiResponseBase\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "George King",
+      "email": "george@nbi.ad"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^8.1"
+  }
+}
