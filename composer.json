@@ -1,7 +1,6 @@
 {
   "name": "ayd/api-response-base",
   "type": "library",
-  "version": "1.0.2",
   "description": "An base API response package for Hyperf or Laravel applications at AYD Company.",
   "license": "MIT",
   "autoload": {
