@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace InfCompany\ApiResponseBase;
+namespace Ayd\ApiResponseBase;
 
 enum StatusCode: int
 {

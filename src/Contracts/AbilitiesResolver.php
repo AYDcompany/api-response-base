@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace InfCompany\ApiResponseBase\Contracts;
+namespace Ayd\ApiResponseBase\Contracts;
 
 interface AbilitiesResolver
 {

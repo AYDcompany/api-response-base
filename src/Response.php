@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace InfCompany\ApiResponseBase;
+namespace Ayd\ApiResponseBase;
 
 class Response
 {
@@ -135,7 +135,7 @@ class Response
         }
 
         // When using an API Resource to wrap a paginator
-        if (property_exists($data, 'resource')) {
+        if (property_exists($data, "resource")) {
             $data = $data->resource;
         }
 
