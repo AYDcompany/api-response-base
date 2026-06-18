@@ -1,12 +1,12 @@
 {
-  "name": "inf-company/api-response-base",
+  "name": "ayd/api-response-base",
   "type": "library",
   "version": "1.0.0",
-  "description": "An base API response package for Hyperf or Laravel applications at INF Company.",
+  "description": "An base API response package for Hyperf or Laravel applications at AYD Company.",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "InfCompany\\ApiResponseBase\\": "src/"
+      "Ayd\\ApiResponseBase\\": "src/"
     }
   },
   "authors": [

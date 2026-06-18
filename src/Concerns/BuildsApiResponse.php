@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace InfCompany\ApiResponseBase\Concerns;
+namespace Ayd\ApiResponseBase\Concerns;
 
-use InfCompany\ApiResponseBase\Meta;
-use Ramsey\Uuid\Uuid;
-use InfCompany\ApiResponseBase\Contracts\AbilitiesResolver;
+use Ayd\ApiResponseBase\Meta;
+use Ayd\ApiResponseBase\Contracts\AbilitiesResolver;
 
 trait BuildsApiResponse
 {
@@ -23,11 +22,10 @@ trait BuildsApiResponse
             $meta = new Meta();
         }
 
-        if ($meta->getRequestId() === null) {
-            $meta = $meta->withRequestId(Uuid::uuid4()->toString());
-        }
-
-        if ($this->abilitiesResolver !== null && $meta->getAbilities() === null) {
+        if (
+            $this->abilitiesResolver !== null &&
+            $meta->getAbilities() === null
+        ) {
             $meta = $meta->withAbilities($this->abilitiesResolver->resolve());
         }
 
