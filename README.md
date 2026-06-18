@@ -5,7 +5,7 @@ Framework-agnostic JSON API response builder. Provides a consistent response env
 ## Installation
 
 ```bash
-composer require inf-company/api-response-base
+composer require ayd/api-response-base
 ```
 
 ## Response Envelope
@@ -35,8 +35,8 @@ The `meta` key is omitted when empty. `data` defaults to `[]` when null. A `requ
 All methods are static and return arrays:
 
 ```php
-use InfCompany\ApiResponseBase\Response;
-use InfCompany\ApiResponseBase\StatusCode;
+use Ayd\ApiResponseBase\Response;
+use Ayd\ApiResponseBase\StatusCode;
 
 // Using convenience methods
 $response = Response::ok($data);
@@ -61,7 +61,7 @@ $response = Response::build(418, null, "I'm a teapot");
 `Meta` is an immutable value object. All setters return new instances:
 
 ```php
-use InfCompany\ApiResponseBase\Meta;
+use Ayd\ApiResponseBase\Meta;
 
 // Create with static factories
 $meta = Meta::requestId('custom-id');
@@ -97,7 +97,7 @@ $meta = Meta::pagination(total: 50, perPage: 10, currentPage: 2);
 Implement `AbilitiesResolver` to inject authorization flags into every response:
 
 ```php
-use InfCompany\ApiResponseBase\Contracts\AbilitiesResolver;
+use Ayd\ApiResponseBase\Contracts\AbilitiesResolver;
 
 class MyAbilitiesResolver implements AbilitiesResolver
 {
@@ -116,7 +116,7 @@ class MyAbilitiesResolver implements AbilitiesResolver
 Provides shared logic for framework-specific implementations:
 
 ```php
-use InfCompany\ApiResponseBase\Concerns\BuildsApiResponse;
+use Ayd\ApiResponseBase\Concerns\BuildsApiResponse;
 
 class MyService
 {
@@ -133,7 +133,7 @@ class MyService
 ## StatusCode Enum
 
 ```php
-use InfCompany\ApiResponseBase\StatusCode;
+use Ayd\ApiResponseBase\StatusCode;
 
 StatusCode::OK;                 // 200
 StatusCode::CREATED;            // 201
@@ -150,7 +150,6 @@ StatusCode::INTERNAL_SERVER_ERROR; // 500
 ## Requirements
 
 - PHP ^8.1
-- ramsey/uuid ^4.9
 
 ## License
 
