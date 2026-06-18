@@ -134,6 +134,11 @@ class Response
             return false;
         }
 
+        // When using an API Resource to wrap a paginator
+        if (property_exists($data, 'resource')) {
+            $data = $data->resource;
+        }
+
         return method_exists($data, "total") &&
             method_exists($data, "perPage") &&
             method_exists($data, "currentPage") &&

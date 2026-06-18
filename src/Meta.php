@@ -9,6 +9,7 @@ class Meta
     public function __construct(
         private readonly ?array $abilities = null,
         private readonly ?array $pagination = null,
+        private readonly ?array $additional = null,
         private readonly ?string $requestId = null,
     ) {
     }
@@ -36,6 +37,11 @@ class Meta
         ]);
     }
 
+    public static function additional(array $additional): self
+    {
+        return new self(additional: $additional);
+    }
+
     public static function requestId(string $id): self
     {
         return new self(requestId: $id);
@@ -43,17 +49,22 @@ class Meta
 
     public function withAbilities(array $abilities): self
     {
-        return new self($abilities, $this->pagination, $this->requestId);
+        return new self($abilities, $this->pagination, $this->additional, $this->requestId);
     }
 
     public function withPagination(array $pagination): self
     {
-        return new self($this->abilities, $pagination, $this->requestId);
+        return new self($this->abilities, $pagination, $this->additional, $this->requestId);
+    }
+
+    public function withAdditional(array $additional): self
+    {
+        return new self($this->abilities, $this->pagination, $additional, $this->requestId);
     }
 
     public function withRequestId(string $id): self
     {
-        return new self($this->abilities, $this->pagination, $id);
+        return new self($this->abilities, $this->pagination, $this->additional, $id);
     }
 
     public function merge(self $other): self
@@ -61,6 +72,7 @@ class Meta
         return new self(
             abilities: $other->abilities ?? $this->abilities,
             pagination: $other->pagination ?? $this->pagination,
+            additional: $other->additional ?? $this->additional,
             requestId: $other->requestId ?? $this->requestId,
         );
     }
@@ -69,6 +81,7 @@ class Meta
     {
         return $this->abilities === null
             && $this->pagination === null
+            && $this->additional === null
             && $this->requestId === null;
     }
 
@@ -80,6 +93,11 @@ class Meta
     public function getPagination(): ?array
     {
         return $this->pagination;
+    }
+
+    public function getAdditional(): ?array
+    {
+        return $this->additional;
     }
 
     public function getRequestId(): ?string
