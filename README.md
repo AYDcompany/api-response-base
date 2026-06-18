@@ -14,14 +14,15 @@ Every response follows this structure:
 
 ```json
 {
-    "code": 200,
-    "data": {},
-    "message": "Successful",
+    "code": 20001,
     "meta": {
         "abilities": { "create": true, "delete": false },
         "pagination": { "total": 100, "per_page": 20, "current_page": 1 },
         "request_id": "550e8400-e29b-41d4-a716-446655440000"
-    }
+    },
+    "data": {},
+    "success": true,
+    "message": "Successful"
 }
 ```
 
